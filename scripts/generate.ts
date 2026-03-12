@@ -3,6 +3,98 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+// bkend 동기화 (환경변수 설정 시 활성화)
+async function syncToBkend(post: {
+  title: string;
+  date: string;
+  category: string;
+  tags: string[];
+  description: string;
+  thumbnail?: string;
+  draft?: boolean;
+  slug: string;
+  content: string;
+  readingTime: number;
+}): Promise<void> {
+  const projectId = process.env.NEXT_PUBLIC_BKEND_PROJECT_ID;
+  const apiKey = process.env.BKEND_API_KEY;
+  const apiBase = process.env.NEXT_PUBLIC_BKEND_API_URL || 'https://api-client.bkend.ai/v1';
+  const env = process.env.NEXT_PUBLIC_BKEND_ENV || 'dev';
+
+  if (!projectId || !apiKey) return; // 미설정 시 건너뜀
+
+  try {
+    // 기존 포스트 확인
+    const listRes = await fetch(
+      `${apiBase}/data/posts?filter[slug]=${encodeURIComponent(post.slug)}&limit=1`,
+      {
+        headers: {
+          'x-project-id': projectId,
+          'x-environment': env,
+          Authorization: `Bearer ${apiKey}`,
+        },
+      },
+    );
+
+    if (!listRes.ok) throw new Error(`List failed: ${listRes.status}`);
+    const listData = await listRes.json() as { data: Array<{ id: string }> };
+    const existing = listData.data[0];
+
+    const payload = JSON.stringify(post);
+    const method = existing ? 'PATCH' : 'POST';
+    const url = existing
+      ? `${apiBase}/data/posts/${existing.id}`
+      : `${apiBase}/data/posts`;
+
+    const res = await fetch(url, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-id': projectId,
+        'x-environment': env,
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: payload,
+    });
+
+    if (!res.ok) throw new Error(`Sync failed: ${res.status} ${await res.text()}`);
+    console.log(`  bkend 동기화 완료 (${existing ? 'update' : 'create'})`);
+  } catch (err) {
+    console.warn(`  bkend 동기화 실패 (파일은 정상 저장됨):`, err instanceof Error ? err.message : err);
+  }
+}
+
+async function logGenerationToBkend(params: {
+  keyword: string;
+  postSlug: string;
+  status: 'success' | 'failed' | 'draft';
+  model: string;
+  tokensUsed?: number;
+  errorMessage?: string;
+}): Promise<void> {
+  const projectId = process.env.NEXT_PUBLIC_BKEND_PROJECT_ID;
+  const apiKey = process.env.BKEND_API_KEY;
+  const apiBase = process.env.NEXT_PUBLIC_BKEND_API_URL || 'https://api-client.bkend.ai/v1';
+  const env = process.env.NEXT_PUBLIC_BKEND_ENV || 'dev';
+
+  if (!projectId || !apiKey) return;
+
+  try {
+    await fetch(`${apiBase}/data/generation_logs`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-id': projectId,
+        'x-environment': env,
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({ ...params, generatedAt: new Date().toISOString() }),
+    });
+  } catch {
+    // 로그 실패는 무시
+  }
+}
+
 interface KeywordEntry {
   keyword: string;
   subKeywords: string[];
@@ -236,6 +328,31 @@ async function generatePost(options: {
 
     fs.writeFileSync(filePath, mdxContent, 'utf-8');
     console.log(`  ✅ 저장됨: ${filename}`);
+
+    // bkend 동기화
+    const { data: frontmatter, content: body } = matter(mdxContent);
+    const charCount = body.replace(/\s/g, '').length;
+    const readingTime = Math.max(1, Math.ceil(charCount / 500));
+
+    await syncToBkend({
+      title: frontmatter.title as string,
+      date: frontmatter.date as string,
+      category: frontmatter.category as string,
+      tags: (frontmatter.tags as string[]) ?? [],
+      description: frontmatter.description as string,
+      thumbnail: frontmatter.thumbnail as string | undefined,
+      draft: false,
+      slug,
+      content: body,
+      readingTime,
+    });
+
+    await logGenerationToBkend({
+      keyword: picked.entry.keyword,
+      postSlug: slug,
+      status: 'success',
+      model: 'claude-sonnet-4-6',
+    });
 
     // 키워드 사용 표시
     picked.entry.used = true;

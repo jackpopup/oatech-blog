@@ -3,8 +3,8 @@ import { getAllPosts } from '@/lib/posts';
 import PostCard from '@/components/blog/PostCard';
 import { SITE_CONFIG, CATEGORIES } from '@/lib/constants';
 
-export default function Home() {
-  const posts = getAllPosts();
+export default async function Home() {
+  const posts = await getAllPosts();
   const featuredPost = posts[0];
   const recentPosts = posts.slice(1);
 

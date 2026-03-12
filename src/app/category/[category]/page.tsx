@@ -9,7 +9,8 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return getAllCategories().map((category) => ({
+  const categories = await getAllCategories();
+  return categories.map((category) => ({
     category: encodeURIComponent(category),
   }));
 }
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CategoryPage({ params }: PageProps) {
   const { category } = await params;
   const decoded = decodeURIComponent(category);
-  const posts = getPostsByCategory(decoded);
+  const posts = await getPostsByCategory(decoded);
   const categoryInfo = CATEGORIES[decoded as keyof typeof CATEGORIES];
 
   return (

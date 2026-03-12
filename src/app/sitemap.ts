@@ -2,9 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getAllPosts, getAllCategories } from '@/lib/posts';
 import { SITE_CONFIG } from '@/lib/constants';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getAllPosts();
-  const categories = getAllCategories();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [posts, categories] = await Promise.all([getAllPosts(), getAllCategories()]);
 
   const blogUrls = posts.map((post) => ({
     url: `${SITE_CONFIG.url}/blog/${post.slug}`,

@@ -2,7 +2,7 @@ import { getAllPosts } from '@/lib/posts';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export async function GET() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   const items = posts
     .map(
