@@ -1,0 +1,297 @@
+{
+  "timestamp": "2026-03-12T05:18:23.974Z",
+  "reason": "compaction",
+  "status": {
+    "version": "2.0",
+    "lastUpdated": "2026-03-12T05:18:05.108Z",
+    "activeFeatures": [
+      "auto-blog-publisher",
+      "블로그 자동 작성기",
+      "layout",
+      "blog",
+      "cta",
+      "seo",
+      "[slug]",
+      "[category]",
+      "scripts"
+    ],
+    "primaryFeature": "auto-blog-publisher",
+    "features": {
+      "auto-blog-publisher": {
+        "name": "블로그 자동 발행 시스템",
+        "phase": "plan",
+        "planApproved": false,
+        "createdAt": "2026-03-12T05:00:00.000Z",
+        "documents": {
+          "plan": "docs/01-plan/features/auto-blog-publisher.plan.md"
+        }
+      },
+      "블로그 자동 작성기": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T04:59:11.892Z",
+          "lastUpdated": "2026-03-12T05:18:05.107Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\lib\\constants.ts"
+      },
+      "layout": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T04:59:36.895Z",
+          "lastUpdated": "2026-03-12T04:59:40.198Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\components\\layout\\Footer.tsx"
+      },
+      "blog": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T04:59:55.636Z",
+          "lastUpdated": "2026-03-12T05:17:28.600Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\components\\blog\\PostContent.tsx"
+      },
+      "cta": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T05:00:12.770Z",
+          "lastUpdated": "2026-03-12T05:00:16.879Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\components\\cta\\BottomCTA.tsx"
+      },
+      "seo": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T05:00:20.995Z",
+          "lastUpdated": "2026-03-12T05:00:20.995Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\components\\seo\\SEOMeta.tsx"
+      },
+      "[slug]": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T05:00:37.933Z",
+          "lastUpdated": "2026-03-12T05:00:37.934Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\app\\blog\\[slug]\\page.tsx"
+      },
+      "[category]": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T05:00:43.250Z",
+          "lastUpdated": "2026-03-12T05:00:43.250Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\src\\app\\category\\[category]\\page.tsx"
+      },
+      "scripts": {
+        "phase": "do",
+        "phaseNumber": 3,
+        "matchRate": null,
+        "iterationCount": 0,
+        "requirements": [],
+        "documents": {},
+        "timestamps": {
+          "started": "2026-03-12T05:03:52.545Z",
+          "lastUpdated": "2026-03-12T05:04:18.166Z"
+        },
+        "lastFile": "c:\\contents\\블로그 자동 작성기\\scripts\\generate.ts"
+      }
+    },
+    "pipeline": {
+      "currentPhase": 1,
+      "level": "Dynamic",
+      "phaseHistory": []
+    },
+    "session": {
+      "startedAt": "2026-03-12T04:41:19.870Z",
+      "onboardingCompleted": true,
+      "lastActivity": "2026-03-12T05:18:05.108Z"
+    },
+    "history": [
+      {
+        "timestamp": "2026-03-12T04:59:11.892Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T04:59:17.020Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T04:59:36.895Z",
+        "feature": "layout",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T04:59:40.198Z",
+        "feature": "layout",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T04:59:46.414Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T04:59:55.636Z",
+        "feature": "blog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T04:59:57.593Z",
+        "feature": "blog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:01.554Z",
+        "feature": "blog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:12.770Z",
+        "feature": "cta",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:16.879Z",
+        "feature": "cta",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:20.995Z",
+        "feature": "seo",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:37.934Z",
+        "feature": "[slug]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:43.250Z",
+        "feature": "[category]",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:00:56.313Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:01:01.826Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:03:52.545Z",
+        "feature": "scripts",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:04:18.166Z",
+        "feature": "scripts",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:04:20.596Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:04:21.950Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:16:08.597Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:16:15.201Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:16:34.584Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:16:56.340Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:17:28.600Z",
+        "feature": "blog",
+        "phase": "do",
+        "action": "updated"
+      },
+      {
+        "timestamp": "2026-03-12T05:18:05.107Z",
+        "feature": "블로그 자동 작성기",
+        "phase": "do",
+        "action": "updated"
+      }
+    ]
+  }
+}

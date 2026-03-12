@@ -1,0 +1,26 @@
+{
+  "categories": {
+    "운영팁": [
+      { "keyword": "펜션 예약률", "subKeywords": ["예약 전환", "객실 관리", "매출 증대"], "used": true, "lastUsedAt": "2026-03-12" },
+      { "keyword": "숙박업 객실 관리", "subKeywords": ["청소 관리", "시설 유지보수", "체크인 자동화"], "used": false },
+      { "keyword": "모텔 매출 올리기", "subKeywords": ["부대시설 활용", "가격 전략", "프로모션"], "used": false },
+      { "keyword": "게스트하우스 운영 노하우", "subKeywords": ["커뮤니티 운영", "장기투숙", "외국인 대응"], "used": false },
+      { "keyword": "숙박업 고객 관리", "subKeywords": ["후기 관리", "재방문율", "CRM"], "used": false }
+    ],
+    "창업가이드": [
+      { "keyword": "펜션 창업 비용", "subKeywords": ["초기 투자", "인테리어 비용", "토지 매입"], "used": false },
+      { "keyword": "숙박업 인허가", "subKeywords": ["사업자등록", "위생허가", "소방검사"], "used": false },
+      { "keyword": "민박 창업 절차", "subKeywords": ["농어촌민박", "도시민박", "신고 절차"], "used": false },
+      { "keyword": "숙박업 수익 구조", "subKeywords": ["손익분기점", "객실 단가", "부대수입"], "used": false }
+    ],
+    "트렌드": [
+      { "keyword": "2026 숙박 트렌드", "subKeywords": ["워케이션", "반려동물 동반", "친환경 숙소"], "used": false },
+      { "keyword": "에어비앤비 대응 전략", "subKeywords": ["차별화", "직접 예약", "브랜딩"], "used": false },
+      { "keyword": "숙박업 디지털 전환", "subKeywords": ["무인 체크인", "스마트 객실", "AI 활용"], "used": false }
+    ],
+    "사례": [
+      { "keyword": "성공 펜션 사례", "subKeywords": ["매출 성장", "운영 전략", "마케팅"], "used": false },
+      { "keyword": "숙박업 실패 사례", "subKeywords": ["흔한 실수", "자금 관리", "입지 선정"], "used": false }
+    ]
+  }
+}
